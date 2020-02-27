@@ -4,6 +4,7 @@ from evenuptheodds.models import Division
 
 _NUM_OF_DIVISIONS = 36
 
+
 @pytest.mark.parametrize("string, div", [
     ("Iron IV", Division.I4),
     ("Iron III", Division.I3),
@@ -30,17 +31,8 @@ _NUM_OF_DIVISIONS = 36
     ("Diamond II", Division.D2),
     ("Diamond I", Division.D1),
     ("Master", Division.M),
-    ("Master Split 1", Division.MS1),
-    ("Master Split 2", Division.MS2),
-    ("Master Split 3", Division.MS3),
-    ("Grandmaster", Division.G),
-    ("Grandmaster Split 1", Division.GS1),
-    ("Grandmaster Split 2", Division.GS2),
-    ("Grandmaster Split 3", Division.GS3),
+    ("Grandmaster", Division.GM),
     ("Challenger", Division.C),
-    ("Challenger Split 1", Division.CS1),
-    ("Challenger Split 2", Division.CS2),
-    ("Challenger Split 3", Division.CS3)
 ])
 def test_division_fromstr(string, div):
     assert div == Division.fromstr(string)

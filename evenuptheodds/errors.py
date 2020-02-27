@@ -1,3 +1,4 @@
+from evenuptheodds.const import MAX_NUM_OF_PLAYERS
 from evenuptheodds.models import Division
 
 
@@ -29,3 +30,8 @@ class NameRepetition(Exception):
     def __init__(self, name):
         self.name = name
         super().__init__(f"Player {name} declared multiple times.")
+
+
+class TooManyPlayers(Exception):
+    def __init__(self):
+        super().__init__(f"The maximum allowed number of players is {MAX_NUM_OF_PLAYERS}")

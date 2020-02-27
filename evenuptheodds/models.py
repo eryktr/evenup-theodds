@@ -29,17 +29,8 @@ class Division(enum.Enum):
     D2 = "Diamond II"
     D1 = "Diamond I"
     M = "Master"
-    MS1 = "Master Split 1"
-    MS2 = "Master Split 2"
-    MS3 = "Master Split 3"
-    G = "Grandmaster"
-    GS1 = "Grandmaster Split 1"
-    GS2 = "Grandmaster Split 2"
-    GS3 = "Grandmaster Split 3"
+    GM = "Grandmaster"
     C = "Challenger"
-    CS1 = "Challenger Split 1"
-    CS2 = "Challenger Split 2"
-    CS3 = "Challenger Split 3"
 
     @classmethod
     def fromstr(cls, string: str) -> "Division":

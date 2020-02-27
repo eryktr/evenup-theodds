@@ -1,8 +1,10 @@
 import re
 from typing import List, Pattern, Set
 
+from evenuptheodds.const import MAX_NUM_OF_PLAYERS
 from evenuptheodds.models import Division, Player
-from evenuptheodds.errors import NoConfigFileError, InvalidPlayerDefinition, InvalidDivisionName, NameRepetition
+from evenuptheodds.errors import NoConfigFileError, InvalidPlayerDefinition, InvalidDivisionName, NameRepetition, \
+    TooManyPlayers
 from pathlib import Path
 
 
@@ -16,7 +18,8 @@ class ConfigParser:
         if not path.exists():
             raise NoConfigFileError
         lines = path.read_text().split("\n")
-
+        if len(lines) > MAX_NUM_OF_PLAYERS:
+            raise TooManyPlayers
         return [self._parse_player(line, seen_names) for line in lines]
 
     def _parse_player(self, line: str, seen_names: Set[str]) -> Player:
