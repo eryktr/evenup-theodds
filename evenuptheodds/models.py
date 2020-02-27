@@ -43,14 +43,14 @@ class Division(enum.Enum):
 
     @classmethod
     def fromstr(cls, string: str) -> "Division":
-        return cls(str)
+        return cls(string)
 
     @classmethod
     def allowed_division_names(cls) -> List[str]:
         return [div.value for div in cls]
 
 
-@dataclass(fronzen=True)
+@dataclass(frozen=True)
 class Player:
     nick: str
     division: Division
